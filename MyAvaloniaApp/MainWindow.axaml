@@ -2,8 +2,65 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" Width="500" Height="400"
         x:Class="MyAvaloniaApp.MainWindow"
-        Title="MyAvaloniaApp">
-    Welcome to Avalonia!
+        Title="Калькулятор систем счисления">
+    <StackPanel Margin="20" Spacing="10">
+        <Grid ColumnDefinitions="*, Auto, *" RowDefinitions="Auto, Auto">
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Число 1:" />
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="Основание 1:" />
+            <TextBox Name="TextBox1" Grid.Row="1" Grid.Column="0" Text="1010" />
+            <ComboBox Name="ComboBase1" Grid.Row="1" Grid.Column="2" SelectedIndex="0" HorizontalAlignment="Stretch">
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>10</ComboBoxItem>
+                <ComboBoxItem>16</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+
+        <Grid ColumnDefinitions="*, Auto, *" RowDefinitions="Auto, Auto">
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Число 2:" />
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="Основание 2:" />
+            <TextBox Name="TextBox2" Grid.Row="1" Grid.Column="0" Text="12" />
+            <ComboBox Name="ComboBase2" Grid.Row="1" Grid.Column="2" SelectedIndex="2" HorizontalAlignment="Stretch">
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>10</ComboBoxItem>
+                <ComboBoxItem>16</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+
+        <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+            <TextBlock Text="Операция:" VerticalAlignment="Center" />
+            <ComboBox Name="ComboOp" SelectedIndex="0" Width="100">
+                <ComboBoxItem>+</ComboBoxItem>
+                <ComboBoxItem>-</ComboBoxItem>
+                <ComboBoxItem>*</ComboBoxItem>
+                <ComboBoxItem>Сравнить</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+            <TextBlock Text="Система счисления результата:" VerticalAlignment="Center" />
+            <ComboBox Name="ComboBaseOut" SelectedIndex="2" Width="60">
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>10</ComboBoxItem>
+                <ComboBoxItem>16</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        
+        <Button Name="Button1" Content="Вычислить" 
+                HorizontalAlignment="Stretch" 
+                HorizontalContentAlignment="Center"
+                Click="Button1_OnClick" />
+        
+        <Separator />
+        
+        <TextBlock Name="ResultLabel" 
+                   Text="Результат: -" 
+                   FontWeight="Bold" 
+                   TextWrapping="Wrap"
+                   HorizontalAlignment="Center" />
+    </StackPanel>
 </Window>
